@@ -124,3 +124,73 @@ footer { background: rgba(0,0,0,0.2); padding: 80px 10%; text-align: center; bor
     section { padding: 40px 5%; }
 }
 
+/* --- UNIVERSAL GOLDEN HEADERS (STATIONARY) --- */
+.section-title, 
+#intro h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    
+    /* FFX Golden Ombre */
+    background: linear-gradient(90deg, #fde047 0%, #eab308 50%, #ca8a04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Strong static shadow for readability */
+    filter: drop-shadow(0 0 2px rgba(0,0,0,1)) 
+            drop-shadow(0 0 12px rgba(234, 179, 8, 0.6));
+    
+    /* Animation removed from here */
+    transform: none;
+}
+
+/* --- ANTHONY NGUYEN: THE BREATHING CORE --- */
+h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    -webkit-text-stroke: 1.5px #fff;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 15px var(--shallow-reef);
+    
+    /* Breathing Animation */
+    animation: nameBreathe 4s ease-in-out infinite alternate;
+}
+
+/* The Container also breathes with the name */
+.hero-name-container {
+    display: inline-block;
+    padding: 20px 50px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 3px solid #fff;
+    border-radius: 15px;
+    margin: 20px 0;
+    
+    /* Matching Breathe Animation */
+    animation: containerBreathe 4s ease-in-out infinite alternate;
+}
+
+@keyframes nameBreathe {
+    from {
+        transform: scale(1);
+        text-shadow: 0 0 15px var(--shallow-reef);
+    }
+    to {
+        transform: scale(1.05);
+        text-shadow: 0 0 30px var(--shallow-reef), 0 0 50px #fff;
+    }
+}
+
+@keyframes containerBreathe {
+    from {
+        box-shadow: 0 0 20px var(--accent-glow);
+        border-color: #fff;
+    }
+    to {
+        box-shadow: 0 0 40px var(--shallow-reef);
+        border-color: var(--shallow-reef);
+    }
+}

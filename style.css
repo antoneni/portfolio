@@ -119,7 +119,20 @@ h1 { font-size: 4.5rem; font-weight: 900; color: #fff; }
     width: 100%; height: 8px; background: rgba(255,255,255,0.1);
     border-radius: 10px; margin: 10px 0 15px 0; overflow: hidden;
 }
-.skill-progress { height: 100%; background: var(--shallow-reef); box-shadow: 0 0 10px var(--shallow-reef); }
+.skill-progress {
+    height: 100%;
+    background: var(--shallow-reef);
+    box-shadow: 0 0 15px var(--shallow-reef); /* Brighter glow for full bars */
+    border-radius: 10px;
+    
+    /* Optional: Makes the full bar feel "active" */
+    animation: barGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes barGlow {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.3); box-shadow: 0 0 20px var(--shallow-reef); }
+}
 
 /* --- BUTTONS & FOOTER --- */
 .btn {
@@ -191,3 +204,4 @@ section { padding: 80px 10%; }
     font-weight: 700;
     text-shadow: 0 0 8px rgba(34, 211, 238, 0.3);
 }
+

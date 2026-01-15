@@ -2,8 +2,8 @@
     --deep-ocean: #075985;
     --shallow-reef: #22d3ee;
     --sand-white: #f0f9ff;
+    --ffx-gold: linear-gradient(90deg, #fde047 0%, #eab308 50%, #ca8a04 100%);
     --accent-glow: rgba(34, 211, 238, 0.5);
-    --glass-bg: rgba(255, 255, 255, 0.1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,194 +14,113 @@ body {
     color: var(--sand-white);
     background: linear-gradient(180deg, #7dd3fc 0%, #0ea5e9 40%, #075985 100%) fixed;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* --- NAVIGATION --- */
 nav {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 1rem 10%;
-    background: rgba(7, 89, 133, 0.85);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    position: sticky; top: 0; z-index: 1000;
+    padding: 1rem 10%; background: var(--ffx-gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 1000;
 }
-.logo { font-weight: 800; font-size: 1.2rem; color: #fff; }
-.logo span { color: var(--shallow-reef); }
-nav ul { display: flex; list-style: none; gap: 2.5rem; }
-nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-nav a:hover { color: var(--shallow-reef); text-shadow: 0 0 10px var(--shallow-reef); }
+.logo { font-weight: 900; color: #422006; letter-spacing: 1px; }
+nav ul { display: flex; list-style: none; gap: 2rem; }
+nav a { color: #422006; text-decoration: none; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; }
 
-/* --- THE POP-OUT BOX STYLE --- */
+/* --- HERO & GLOWING NAME --- */
+header { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+.profile-img { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 6px solid #fff; box-shadow: 0 0 50px rgba(0,0,0,0.2); margin-bottom: 20px; }
+
+.hero-name-container {
+    display: inline-block; padding: 20px 50px; background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px); border: 3px solid #fff; border-radius: 15px;
+    box-shadow: 0 0 20px var(--accent-glow); margin: 20px 0; animation: neonPulse 3s infinite alternate;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; -webkit-text-stroke: 1.5px #fff; color: rgba(255,255,255,0.9); text-shadow: 0 0 15px var(--accent-glow); }
+
+@keyframes neonPulse {
+    0% { border-color: #fff; box-shadow: 0 0 15px var(--accent-glow); }
+    100% { border-color: var(--shallow-reef); box-shadow: 0 0 35px var(--shallow-reef); }
+}
+
+/* --- THE POP-OUT BOX & INSTANT SHIMMER --- */
 .pop-out-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Crisp border */
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: 0.4s ease;
+    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);
+    border: 3px solid rgba(255, 255, 255, 0.8); border-radius: 20px;
+    padding: 40px; position: relative; overflow: hidden;
+    box-shadow: 0 0 25px var(--accent-glow), inset 0 0 15px var(--accent-glow);
+    transition: 0.3s ease; /* Instant snap */
 }
 
 .pop-out-container:hover {
-    border-color: #fff;
-    transform: translateY(-8px);
-    box-shadow: 0 0 30px var(--accent-glow);
-}
-/* --- HERO SECTION --- */
-.hero-name-container {
-    display: inline-block;
-    padding: 20px 50px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    
-    /* The Glowing Border */
-    border: 3px solid #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.6), 
-                inset 0 0 20px rgba(34, 211, 238, 0.4);
-    
-    margin: 30px 0;
-    animation: neonPulse 3s infinite alternate;
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--shallow-reef);
+    box-shadow: 0 0 40px var(--shallow-reef);
+    filter: brightness(1.2); /* Brief flash of light when the sound plays */
+    transition: filter 0.1s ease;
 }
 
-/* THE BORDERED TEXT (The Name Itself) */
-h1 {
-    font-size: 5rem;
-    font-weight: 900;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    
-    /* This creates the border around each letter */
-    -webkit-text-stroke: 2px #fff; 
-    /* Optional: make the inside of the letters slightly transparent for a glass look */
-    color: rgba(255, 255, 255, 0.9);
-    
-    text-shadow: 0 0 15px rgba(34, 211, 238, 0.8);
+.pop-out-container::after {
+    content: ""; position: absolute; top: 0; left: -150%;
+    width: 60%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-25deg); transition: 0.5s; /* Faster shimmer */
 }
+.pop-out-container:hover::after { left: 150%; }
 
-/* ANIMATION FOR THE BOX GLOW */
-@keyframes neonPulse {
-    0% {
-        border-color: #fff;
-        box-shadow: 0 0 15px rgba(34, 211, 238, 0.6), inset 0 0 10px rgba(34, 211, 238, 0.4);
-    }
-    100% {
-        border-color: var(--shallow-reef);
-        box-shadow: 0 0 35px var(--shallow-reef), inset 0 0 20px var(--shallow-reef);
-    }
-}
+/* --- GRIDS & CONTENT --- */
+section { padding: 80px 10%; }
+.section-title { text-align: center; margin-bottom: 3.5rem; font-size: 2.8rem; font-weight: 900; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
 
-h1 { font-size: 4.5rem; font-weight: 900; color: #fff; }
-.profile-img {
-    width: 260px; height: 260px; border-radius: 50%;
-    object-fit: cover; border: 6px solid #fff;
-    box-shadow: 0 0 50px rgba(0,0,0,0.2); margin-bottom: 1rem;
-}
+.course-item { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2); text-align: center; }
 
-/* --- GRID & LISTS --- */
-.course-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
-    text-align: left;
-}
-.course-item {
-    background: rgba(255,255,255,0.1);
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
+/* --- MAX GLOW SKILL BARS --- */
 .skill-bar {
-    width: 100%; height: 8px; background: rgba(255,255,255,0.1);
-    border-radius: 10px; margin: 10px 0 15px 0; overflow: hidden;
+    width: 100%;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 1px solid rgba(34, 211, 238, 0.3);
 }
+
 .skill-progress {
     height: 100%;
-    background: var(--shallow-reef);
-    box-shadow: 0 0 15px var(--shallow-reef); /* Brighter glow for full bars */
-    border-radius: 10px;
+    width: 100%; /* Full capacity */
+    background: linear-gradient(90deg, #22d3ee, #0ea5e9);
     
-    /* Optional: Makes the full bar feel "active" */
-    animation: barGlow 2s ease-in-out infinite alternate;
+    /* The Glow Effect */
+    box-shadow: 0 0 15px #22d3ee, 0 0 30px rgba(34, 211, 238, 0.6);
+    
+    /* Pulsing Animation */
+    animation: skillPulse 2s infinite alternate;
 }
 
-@keyframes barGlow {
-    from { filter: brightness(1); }
-    to { filter: brightness(1.3); box-shadow: 0 0 20px var(--shallow-reef); }
+@keyframes skillPulse {
+    0% {
+        filter: brightness(1);
+        box-shadow: 0 0 10px #22d3ee;
+    }
+    100% {
+        filter: brightness(1.4);
+        box-shadow: 0 0 25px #22d3ee, 0 0 40px rgba(34, 211, 238, 0.8);
+    }
 }
 
 /* --- BUTTONS & FOOTER --- */
-.btn {
-    display: inline-block; padding: 14px 35px;
-    background: #fff; color: var(--deep-ocean);
-    font-weight: 800; text-decoration: none;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-    transition: 0.3s;
-}
+.btn { display: inline-block; padding: 14px 35px; background: #fff; color: var(--deep-ocean); font-weight: 800; text-decoration: none; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); transition: 0.3s; }
 .btn:hover { background: var(--shallow-reef); color: #fff; transform: scale(1.1); }
 
-#backToTop {
-    display: none; position: fixed; bottom: 30px; right: 30px;
-    background: #fff; color: var(--deep-ocean); border: none;
-    width: 55px; height: 55px; border-radius: 50%; cursor: pointer;
-    font-size: 1.5rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 2000;
-}
+footer { background: rgba(0,0,0,0.2); padding: 80px 10%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
 
-section { padding: 80px 10%; }
-.section-title { text-align: center; margin-bottom: 2rem; font-size: 2.8rem; font-weight: 900; }
+#backToTop { display: none; position: fixed; bottom: 30px; right: 30px; background: var(--ffx-gold); color: #422006; border: 2px solid #854d0e; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; font-weight: bold; z-index: 2000; }
 
-/* 1. Prepare the container for the shimmer */
-.pop-out-container {
-    position: relative;
-    overflow: hidden; /* This crops the shimmer so it stays inside the box */
-}
-
-/* 2. Create the shimmer "blade" */
-.pop-out-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -150%; /* Start way off to the left */
-    width: 50%;
-    height: 100%;
-    
-    /* A soft, white gradient that looks like a reflection */
-    background: linear-gradient(
-        to right, 
-        transparent, 
-        rgba(255, 255, 255, 0.2), 
-        transparent
-    );
-    
-    transform: skewX(-25deg); /* Angles the shimmer for a sleeker look */
-    transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1); /* Smooth "swoosh" speed */
-}
-
-/* 3. Trigger the shimmer on hover */
-.pop-out-container:hover::after {
-    left: 150%; /* Sweep all the way to the right */
-}
-
-#intro p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;         /* Cleaner, lighter weight */
-    font-size: 1.1rem;        /* Slightly larger for comfort */
-    line-height: 1.9;         /* High spacing between lines (The FFX Menu look) */
-    letter-spacing: 0.5px;    /* Subtle space between letters */
-    color: rgba(255, 255, 255, 0.9); /* Slightly soft white to reduce eye strain */
-    text-align: left;
-    max-width: 850px;         /* Prevents lines from being too long or too short */
-    margin: 0 auto;           /* Centers the text block */
-}
-
-/* Optional: Highlight certain words in the about me */
-#intro b {
-    color: var(--shallow-reef);
-    font-weight: 700;
-    text-shadow: 0 0 8px rgba(34, 211, 238, 0.3);
+@media (max-width: 768px) {
+    nav { flex-direction: column; gap: 10px; padding: 1rem; }
+    .profile-img { width: 180px; height: 180px; }
+    section { padding: 40px 5%; }
 }
 

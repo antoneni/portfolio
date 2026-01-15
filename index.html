@@ -5,85 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anthony Nguyen | Software Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <nav>
-        <div class="logo">AN<span>THONY</span></div>
+        <div class="logo">ANTHONY <span>NGUYEN</span></div>
         <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <header id="about">
-        <div class="hero">
-            <h1>Hi, I'm <span class="highlight">Anthony Nguyen</span></h1>
-            <p class="subtitle">Software Engineer specializing in systems programming and full-stack development. Passionate about building efficient, scalable solutions from the kernel to the cloud.</p>
-            <div class="cta-group">
-                <a href="#projects" class="primary-btn">View My Work</a>
-                <a href="mailto:apn2443@gmail.com" class="secondary-btn">Contact Me</a>
-            </div>
+   <header id="about" style="min-height: 95vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <img src="profile.jpg" alt="Anthony Nguyen" class="profile-img">
+        
+        <p style="font-weight: 800; letter-spacing: 5px; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5);">SUNNYVALE, CA</p>
+        
+        <div class="hero-name-container">
+            <h1>Anthony Nguyen</h1>
+        </div>
+        
+        <p style="background: rgba(34, 211, 238, 0.2); border: 1px solid var(--shallow-reef); padding: 8px 30px; border-radius: 50px; backdrop-filter: blur(5px); font-weight: 700; color: #fff;">
+            SOFTWARE ENGINEER
+        </p>
+        
+        <div style="margin-top: 3rem;">
+            <a href="resume.pdf" download class="btn">Download Resume</a>
         </div>
     </header>
 
-    <section id="skills">
-        <h2>Technical Stack</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Core Languages</h3>
-                <p>C++, Java, C, JavaScript, Python</p>
+    <section id="intro">
+    <div class="pop-out-container" style="max-width: 950px; margin: 0 auto; padding: 50px;">
+        <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem; color: var(--shallow-reef); letter-spacing: 3px; text-transform: uppercase;">
+            The Mission
+        </h2>
+        <p>
+            I am a Software Engineer and Computer Science graduate from San Francisco State University, currently based in Sunnyvale, CA. I specialize in building high-performance systems and robust backend architectures. 
+            <br><br>
+            My engineering philosophy is rooted in efficiency and scalability—whether I'm optimizing memory management in C++, architecting data flows in Java, or managing complex environments in Linux. I thrive on solving the "impossible" bugs and turning complex logic into seamless user experiences.
+        </p>
+    </div>
+</section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="pop-out-container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h3 style="font-size: 2rem; margin-bottom: 5px;">San Francisco State University</h3>
+            <p style="color: var(--shallow-reef); font-weight: 700; margin-bottom: 20px;">Bachelor of Science in Computer Science</p>
+            
+            <h4 style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px;">Key Coursework</h4>
+            <div class="course-list">
+                <div class="course-item">Data Structures & Algorithms</div>
+                <div class="course-item">Operating Systems</div>
+                <div class="course-item">Software Engineering</div>
+                <div class="course-item">Database Systems</div>
+                <div class="course-item">Programming Language Theory</div>
+                <div class="course-item">Computer Networks</div>
+                <div class="course-item">Systems Programming</div>
+                <div class="course-item">Discrete Mathematics</div>
             </div>
-            <div class="skill-category">
-                <h3>Web & Data</h3>
-                <p>HTML5, CSS3, SQL, Git, REST APIs</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Mastery</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            <div class="pop-out-container">
+                <h3 style="color: var(--shallow-reef); margin-bottom: 15px;">Core Languages</h3>
+                <p>Expertise in C++, Java, and C. Proficient in Python and SQL for data-driven applications.</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="pop-out-container">
+                <h3 style="color: var(--shallow-reef); margin-bottom: 15px;">Ecosystem</h3>
+                <p>Extensive use of Git, Spring Boot, PostgreSQL, and Linux environments for full-cycle development.</p>
+                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-tag">C++ / Algorithms</div>
-                <h3>Distributed System Simulator</h3>
-                <p>A high-performance simulation engine designed to model network latency in distributed clusters. Focused on memory efficiency and multi-threading.</p>
-                <div class="project-links">
-                    <a href="#">Github</a>
-                    <a href="#">Docs</a>
-                </div>
+        <h2 class="section-title">Featured Projects</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            <div class="pop-out-container">
+                <b style="color: var(--shallow-reef); font-size: 0.8rem; letter-spacing: 2px;">C++ // SYSTEMS</b>
+                <h3 style="margin: 10px 0;">Distributed Simulator</h3>
+                <p>Designed a simulation engine to model network latency in distributed clusters, emphasizing memory efficiency and performance.</p>
+                <a href="https://github.com/antoneni" target="_blank" style="color: #fff; margin-top: 20px; display: inline-block; font-weight: 700;">CODE REPOSITORY →</a>
             </div>
-
-            <div class="project-card">
-                <div class="project-tag">Java / Spring Boot</div>
-                <h3>Full-Stack Inventory Manager</h3>
-                <p>A robust CRUD application for logistics tracking. Implemented secure user authentication and a PostgreSQL database backend.</p>
-                <div class="project-links">
-                    <a href="#">Github</a>
-                    <a href="#">Live Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-tag">C / Systems</div>
-                <h3>Custom Unix Shell</h3>
-                <p>A lightweight command-line interpreter with support for piping, redirection, and background processes using low-level system calls.</p>
-                <div class="project-links">
-                    <a href="#">Github</a>
-                </div>
+            <div class="pop-out-container">
+                <b style="color: var(--shallow-reef); font-size: 0.8rem; letter-spacing: 2px;">JAVA // BACKEND</b>
+                <h3 style="margin: 10px 0;">Inventory Manager</h3>
+                <p>Full-stack CRUD application utilizing Spring Boot and PostgreSQL, featuring secure user authentication and RESTful API design.</p>
+                <a href="https://github.com/antoneni" target="_blank" style="color: #fff; margin-top: 20px; display: inline-block; font-weight: 700;">CODE REPOSITORY →</a>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <h2>Let's Build Something Together</h2>
-        <p>I'm currently looking for new opportunities in Software Engineering.</p>
-        <div class="email-display">apn2443@gmail.com</div>
-        <a href="mailto:apn2443@gmail.com" class="contact-btn">Send an Email</a>
+    <footer id="contact" style="background: rgba(0,0,0,0.2); padding: 80px 10%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+        <h2 style="margin-bottom: 1rem;">Contact & Resume</h2>
+        <p style="font-size: 1.2rem;">apn2443@gmail.com | 408-685-1496</p>
+        <div style="margin-top: 3rem; display: flex; gap: 20px; justify-content: center;">
+            <a href="resume.pdf" download class="btn">DOWNLOAD CV</a>
+            <a href="https://github.com/antoneni" target="_blank" class="btn" style="background: transparent; color: #fff; border: 2px solid #fff;">GITHUB</a>
+        </div>
     </footer>
+
+    <button id="backToTop">↑</button>
 
     <script src="script.js"></script>
 </body>
 </html>
+div>
+ 

@@ -1,20 +1,97 @@
+:root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #f8fafc;
+    --accent: #38bdf8;
+    --secondary: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0 2rem;
-  line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
-header, section {
-  margin: 2rem 0;
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 10%;
+    position: sticky;
+    top: 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
-h1, h2, h3 {
-  margin: 0.5rem 0;
+.logo { font-weight: 800; font-size: 1.5rem; }
+.logo span { color: var(--accent); }
+
+nav ul { display: flex; list-style: none; gap: 2rem; }
+nav a { color: var(--text); text-decoration: none; font-weight: 600; transition: 0.3s; }
+nav a:hover { color: var(--accent); }
+
+/* Hero Section */
+header {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+h1 { font-size: 4rem; margin-bottom: 1rem; }
+.highlight { color: var(--accent); }
+.subtitle { color: var(--secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; }
+
+.tags span {
+    background: var(--card-bg);
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent);
+}
+
+/* Projects */
+section { padding: 100px 10%; }
+h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .project-card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin: 1rem 0;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.project-card:hover { transform: translateY(-10px); }
+.project-links { margin-top: 1rem; }
+.project-links a { color: var(--accent); margin-right: 15px; text-decoration: none; font-weight: bold; }
+
+/* Footer */
+footer { text-align: center; padding: 100px 10%; background: #0b1120; }
+.contact-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 12px 30px;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 800;
 }

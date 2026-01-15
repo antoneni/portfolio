@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anthony Nguyen | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWE Portfolio | [Your Name]</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Hero Section -->
-  <header>
-    <h1>Anthony Nguyen</h1>
-    <p>Software Engineer</p>
-  </header>
+    <nav>
+        <div class="logo">DE<span>V</span></div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-  <!-- About Me -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm Anthony, a software engineer passionate about building clean and professional projects.</p>
-  </section>
+    <header id="about">
+        <div class="hero">
+            <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
+            <p class="subtitle">Software Engineer specializing in building scalable web applications.</p>
+            <div class="tags">
+                <span>React</span> <span>Node.js</span> <span>Python</span> <span>PostgreSQL</span>
+            </div>
+        </div>
+    </header>
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Project Name</h3>
-      <p>Short description of the project.</p>
-      <a href="#">View on GitHub</a>
-    </div>
-  </section>
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Project Alpha</h3>
+                <p>A full-stack task management system with real-time updates.</p>
+                <div class="project-links">
+                    <a href="#">Github</a>
+                    <a href="#">Live Demo</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>API Gateway</h3>
+                <p>High-performance microservice router built with Go and Redis.</p>
+                <div class="project-links">
+                    <a href="#">Github</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
-    <p>GitHub: <a href="https://github.com/antoneni">github.com/antoneni</a></p>
-  </section>
+    <footer id="contact">
+        <h2>Get In Touch</h2>
+        <p>Currently looking for new opportunities!</p>
+        <a href="mailto:your@email.com" class="contact-btn">Say Hello</a>
+    </footer>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

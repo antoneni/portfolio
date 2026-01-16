@@ -173,17 +173,15 @@ footer { background: rgba(0,0,0,0.2); padding: 80px 10%; text-align: center; bor
 
 h1 {
   /* 1. SEAMLESS GRADIENT */
-  /* Blue -> Purple -> Orange -> Yellow -> Blue (Ends match for perfect loop) */
   background: linear-gradient(
     to right, 
-    blue, 
-    purple, 
-    orange, 
-    yellow, 
-    blue 
+    #0000ff, 
+    #800080, 
+    #ffa500, 
+    #ffff00, 
+    #0000ff 
   );
   
-  /* Spread colors out wide */
   background-size: 400% auto;
   
   /* 2. Text Clipping */
@@ -191,19 +189,23 @@ h1 {
   background-clip: text;
   color: transparent;
 
-  /* 3. SLOW & SMOOTH ANIMATION */
-  /* Changed to 20s for a very slow, relaxing shift */
+  /* 3. ANIMATION */
   animation: sunsetLoop 20s linear infinite;
 
-  /* 4. The Glow */
-  /* A soft purple glow around the letters */
-  filter: drop-shadow(0 0 15px rgba(128, 0, 128, 0.5));
+  /* 4. FIX: Use text-shadow instead of drop-shadow */
+  /* This provides a glow without altering the alpha/vibrancy of the gradient */
+  text-shadow: 0 0 10px rgba(128, 0, 128, 0.3);
+
+  /* 5. ADDITION: Thin stroke to define edges if they get lost in the glow */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
 
   /* Layout & Font Styling */
-  font-family: 'Arial Black', sans-serif;
-  font-size: 5rem;
+  font-family: 'Inter', sans-serif; /* Matching your site font */
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
   margin: 0;
   display: inline-block;
+  line-height: 1.2;
 }
 
 /* 5. ANIMATION KEYFRAMES */

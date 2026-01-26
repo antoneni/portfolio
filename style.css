@@ -111,8 +111,40 @@ section { padding: 80px 10%; }
 }
 
 /* --- BUTTONS & FOOTER --- */
-.btn { display: inline-block; padding: 14px 35px; background: #fff; color: var(--deep-ocean); font-weight: 800; text-decoration: none; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); transition: 0.3s; }
-.btn:hover { background: var(--shallow-reef); color: #fff; transform: scale(1.1); }
+.btn { 
+    display: inline-block; 
+    padding: 14px 35px; 
+    background: #fff; 
+    color: var(--deep-ocean); 
+    font-weight: 800; 
+    text-decoration: none; 
+    /* This creates the parallelogram */
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); 
+    transition: 0.3s; 
+    border: 2px solid transparent; /* Prevents jumping when border is added */
+}
+
+/* New class for the transparent GitHub button */
+.btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-github {
+    background: #24292e; /* GitHub's signature dark grey */
+    color: #ffffff;
+    border: 2px solid #444d56; /* Subtle border for definition */
+    transition: 0.3s;
+}
+
+.btn-github:hover {
+    background: #000000;
+    border-color: var(--shallow-reef); /* Glows blue on hover */
+    color: var(--shallow-reef);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
 
 footer { background: rgba(0,0,0,0.2); padding: 80px 10%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
 
@@ -262,3 +294,18 @@ h1 {
     }
 }
 
+/* --- PROJECT LINK STYLING --- */
+.project-link {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--shallow-reef);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--shallow-reef);
+    border-bottom-color: #fff;
+    letter-spacing: 1px;
+}

@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://img.icons8.com/color/48/000000/volleyball.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Small addition for the project tags */
+        .tech-tag {
+            display: inline-block;
+            background: rgba(34, 211, 238, 0.1);
+            color: var(--shallow-reef);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            margin-right: 5px;
+            font-weight: 700;
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+    </style>
 </head>
 <body>
 
@@ -34,7 +49,7 @@
     
     <div class="pop-out-container" style="max-width: 950px; margin: 0 auto;">
         <p style="font-size: 1.15rem; line-height: 1.9; letter-spacing: 0.5px;">
-            I am a Software Engineer and Computer Science graduate from <b>San Francisco State University</b>, currently based in <b>Sunnyvale, CA</b>. I specialize in building high-performance systems and robust backend architectures. My engineering philosophy is rooted in <b>efficiency and scalability</b>—whether I'm optimizing memory management in <b>C++</b>, architecting data flows in <b>Java</b>, or managing complex environments in <b>Linux</b>.
+            I am a Software Engineer and Computer Science graduate from <b>San Francisco State University</b>, currently based in <b>Sunnyvale, CA</b>. I specialize in building high-performance systems and robust backend architectures. My engineering philosophy is rooted in <b>efficiency and scalability</b>—whether I'm optimizing memory management in <b>C++</b>, architecting data flows in <b>Java</b>, or building real-time mobile environments with <b>React Native and Supabase</b>.
         </p>
     </div>
 </section>
@@ -46,7 +61,7 @@
             <p style="color: var(--shallow-reef); font-weight: 700; font-size: 1.2rem; margin-bottom: 25px;">Bachelor of Science in Computer Science</p>
             
             <h4 style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 20px;">Key Coursework</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
                 <div class="course-item">Data Structures & Algorithms</div>
                 <div class="course-item">Operating Systems</div>
                 <div class="course-item">Software Engineering</div>
@@ -55,6 +70,7 @@
                 <div class="course-item">Computer Networks</div>
                 <div class="course-item">Systems Programming</div>
                 <div class="course-item">Discrete Mathematics</div>
+                <div class="course-item">Mobile Application Development</div>
             </div>
         </div>
     </section>
@@ -64,12 +80,12 @@
         <div class="grid">
             <div class="pop-out-container">
                 <h3 style="color: var(--shallow-reef); margin-bottom: 15px;">Core Languages</h3>
-                <p>Expertise in C++, Java, and C. Proficient in Python and SQL for data-driven applications.</p>
+                <p>Expertise in C++, Java, and C. Proficient in TypeScript and SQL for cloud-native applications.</p>
                 <div class="skill-bar"><div class="skill-progress"></div></div>
             </div>
             <div class="pop-out-container">
                 <h3 style="color: var(--shallow-reef); margin-bottom: 15px;">Ecosystem</h3>
-                <p>Extensive use of Git, Spring Boot, PostgreSQL, and Linux environments for full-cycle development.</p>
+                <p>Extensive use of React Native, Supabase, PostgreSQL, and Linux environments for full-cycle development.</p>
                 <div class="skill-bar"><div class="skill-progress"></div></div>
             </div>
         </div>
@@ -78,23 +94,49 @@
     <section id="projects">
         <h2 class="section-title">Featured Projects</h2>
         <div class="grid">
-            <div class="pop-out-container">
-                <b style="color: var(--shallow-reef); font-size: 0.8rem; letter-spacing: 2px;">JAVASCRIPT // FINANCE</b>
-                <h3 style="margin: 10px 0;">Money Mutt</h3>
-                <p>A personal finance tracker designed to help users manage budgets and expenses with a clean, intuitive interface.</p>
-                <div style="display: flex; gap: 15px; margin-top: 20px;">
-                    <a href="https://antoneni.github.io/Money-Mutt/" target="_blank" class="project-link">LIVE DEMO →</a>
-                    <a href="https://github.com/antoneni/Money-Mutt" target="_blank" class="project-link">GITHUB →</a>
-                </div>
+                    <div class="pop-out-container">
+            <b style="color: var(--shallow-reef); font-size: 0.8rem; letter-spacing: 2px;">MOBILE // REAL-TIME // CLOUD</b>
+            <h3 style="margin: 10px 0;">DogGoSocial</h3>
+            <p>A real-time location tracker for dog parks. Features live map clustering via spiral math, a community message board, and automated data expiry using PostgreSQL functions.</p>
+            <div>
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Supabase</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">TypeScript</span>
             </div>
+            <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                <a href="https://github.com/antoneni/DogGoSocial" target="_blank" class="project-link">GITHUB →</a>
+                <a href="https://expo.dev/preview/update?message=Initial+MVP+Upload&updateRuntimeVersion=1.0.0&createdAt=2026-01-27T04%3A31%3A03.419Z&slug=exp&projectId=d0501019-5c35-48d9-884e-41ac6813b2cc&group=b63d2711-9ecc-4427-9030-abd96db9dcd3" target="_blank" class="project-link" style="color: #fff; background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 5px;">📱 EXPO GO DEMO</a>
+            </div>
+        </div>
 
             <div class="pop-out-container">
                 <b style="color: var(--shallow-reef); font-size: 0.8rem; letter-spacing: 2px;">FULL-STACK // WEB</b>
                 <h3 style="margin: 10px 0;">Dog Matchmaker</h3>
                 <p>A full-stack application connecting potential owners with their perfect canine companions based on lifestyle and preferences.</p>
+                <div>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                </div>
                 <div style="display: flex; gap: 15px; margin-top: 20px;">
                     <a href="https://dog-matchmaker-1.onrender.com/" target="_blank" class="project-link">LIVE DEMO →</a>
                     <a href="https://github.com/antoneni/dog-matchmaker" target="_blank" class="project-link">GITHUB →</a>
+                </div>
+            </div>
+
+            <div class="pop-out-container">
+                <b style="color: var(--shallow-reef); font-size: 0.8rem; letter-spacing: 2px;">JAVASCRIPT // FINANCE</b>
+                <h3 style="margin: 10px 0;">Money Mutt</h3>
+                <p>A personal finance tracker designed to help users manage budgets and expenses with a clean, intuitive interface.</p>
+                <div>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">Local Storage</span>
+                </div>
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <a href="https://antoneni.github.io/Money-Mutt/" target="_blank" class="project-link">LIVE DEMO →</a>
+                    <a href="https://github.com/antoneni/Money-Mutt" target="_blank" class="project-link">GITHUB →</a>
                 </div>
             </div>
         </div>
